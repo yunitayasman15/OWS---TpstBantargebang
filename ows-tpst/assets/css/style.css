@@ -1,0 +1,430 @@
+/* ========== GLOBAL STYLE ========== */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #476b8f;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-bg: #f4f6f9;
+    --sidebar-width: 280px;
+    --sidebar-collapsed-width: 70px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    overflow-x: hidden;
+}
+
+/* ========== SIDEBAR STYLE ========== */
+.sidebar {
+    width: var(--sidebar-width);
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--primary-color) 0%, #1a252f 100%);
+    color: white;
+    transition: all var(--transition-speed) ease;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.collapsed {
+    width: var(--sidebar-collapsed-width);
+}
+
+.sidebar.collapsed .sidebar-text,
+.sidebar.collapsed .nav-link span {
+    display: none;
+}
+
+.sidebar.collapsed .nav-link i {
+    margin-right: 0;
+    font-size: 1.3rem;
+}
+
+.sidebar.collapsed h4 {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.sidebar .nav-link {
+    color: #ecf0f1;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.sidebar .nav-link.active {
+    background: var(--success-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .nav-link i {
+    margin-right: 12px;
+    width: 20px;
+    font-size: 1.1rem;
+}
+
+.sidebar .nav-link span {
+    transition: opacity var(--transition-speed);
+}
+
+/* User Badge di Sidebar */
+.user-badge {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 12px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    display: inline-block;
+    backdrop-filter: blur(5px);
+}
+
+/* ========== MAIN CONTENT ========== */
+#page-content-wrapper {
+    flex: 1;
+    min-height: 100vh;
+    transition: all var(--transition-speed);
+}
+
+/* Navbar */
+.navbar {
+    background: white !important;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: var(--primary-color) !important;
+}
+
+#menuToggle {
+    background: transparent;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+}
+
+#menuToggle:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* ========== CARD STYLES ========== */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-stats {
+    border-left: 4px solid var(--primary-color);
+    border-radius: 12px;
+    background: white;
+}
+
+.card-stats .card-body {
+    padding: 1.25rem;
+}
+
+.card-header {
+    border-bottom: 2px solid #f0f0f0;
+    padding: 1rem 1.25rem;
+    background: white;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* ========== TABLE STYLES ========== */
+.table {
+    vertical-align: middle;
+}
+
+.table thead th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    border: none;
+    padding: 12px;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(44, 62, 80, 0.05);
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ========== FORM STYLES ========== */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    transition: all 0.3s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* ========== BUTTON STYLES ========== */
+.btn {
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #1a252f;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: var(--success-color);
+    border: none;
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    border: none;
+}
+
+.btn-warning {
+    background: var(--warning-color);
+    border: none;
+    color: #333;
+}
+
+.btn-export {
+    background: #28a745;
+    color: white;
+    border: none;
+}
+
+.btn-export:hover {
+    background: #218838;
+    color: white;
+}
+
+/* ========== LOGIN PAGE ========== */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-card h3 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ========== PAGINATION ========== */
+.pagination .page-link {
+    color: var(--primary-color);
+    border-radius: 8px;
+    margin: 0 3px;
+}
+
+.pagination .active .page-link {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* ========== ALERT & NOTIFICATION ========== */
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -280px;
+        transition: left 0.3s ease;
+        z-index: 1050;
+    }
+    
+    .sidebar.show {
+        left: 0;
+    }
+    
+    #page-content-wrapper {
+        width: 100%;
+    }
+    
+    .card-stats h2 {
+        font-size: 1.5rem;
+    }
+    
+    .table-responsive {
+        font-size: 0.85rem;
+    }
+    
+    .btn-sm {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .sidebar {
+        display: block !important;
+    }
+}
+
+/* ========== LOADING SPINNER ========== */
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    display: none;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+    .sidebar, .navbar, .btn, .pagination, .user-badge {
+        display: none !important;
+    }
+    
+    #page-content-wrapper {
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* ========== DROPDOWN ========== */
+.dropdown-menu {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.dropdown-item:hover {
+    background: var(--light-bg);
+}
+
+/* ========== BADGE ========== */
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* ========== CHART CONTAINER ========== */
+canvas {
+    max-height: 250px;
+    width: 100% !important;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: auto;
+}
+
+/* ========== SCROLLBAR CUSTOM ========== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1a252f;
+}
